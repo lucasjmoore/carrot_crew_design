@@ -1,0 +1,27 @@
+<div>
+	<h1><%= current_user.profile_name %>'s latest catch</h1>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<div> <!-- intent to span 1 -->
+Image here
+<!-- fish image -->
+
+</div>
+
+<div>
+
+<%= @fish.fish_type %><br />
+Length: <%= @fish.length %>  <br />
+Weight: <%= @fish.weight %> <br />
+Location: <!-- JS geolocation info --> <br />
+
+</div>
+
+<div>
+<%= link_to 'Back', fish_index_path %>
+</div>
+
+
+

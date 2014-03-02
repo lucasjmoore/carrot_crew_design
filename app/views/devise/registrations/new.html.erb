@@ -1,0 +1,20 @@
+<h2>Create Account</h2>
+
+<div class="row">
+  <div class="span4">
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: "well"}) do |f| %>
+  <%= devise_error_messages! %>
+<fieldset>
+  <legend>Register</legend> 
+  <div>
+    <%= f.input :profile_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation%>
+
+  <div class="form-actions"><%= f.button :submit, "Create Account" %></div>
+<% end %>
+</fieldset>
+
+<%= render "devise/shared/links" %>

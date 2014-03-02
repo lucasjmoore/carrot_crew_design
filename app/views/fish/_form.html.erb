@@ -1,0 +1,149 @@
+<%= simple_form_for(@fish) do |f| %>
+  <% if @fish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fish.errors.count, "error") %> prohibited this fish from being saved:</h2>
+
+      <ul>
+      <% @fish.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<fieldset>
+      <legend>Edit Fish</legend>
+      <%= f.input :user_id, collection: User.all, label_method: :profile_name %>
+      <%= f.input :fish_type, collection: ["Alcyonidium gelatinosum",
+          "Alewife",
+          "Allorchestes angusta",
+          "Amphithoe valida",
+          "Atlantic Salmon",
+          "Balanus improvisus",
+          "Bloody Red_Shrimp",
+          "Bowerbankia gracilis",
+          "Branchiura sowerbyi",
+          "Brown Trout",
+          "Capitella sp",
+          "Caprella mutica",
+          "Caprella penantis",
+          "Caprella simia",
+          "Chinese Mystery_Snail",
+          "Chinook Salmon",
+          "Cliona sp",
+          "Clubbed Tunicate",
+          "Coho Salmon",
+          "Colonial Tunicate",
+          "Common Carp",
+          "Common Periwinkle",
+          "Compound Sea_Squirt",
+          "Corbicula fluminea",
+          "Corophium alienense",
+          "Corophium heteroceratum",
+          "Cryptosula pallasiana",
+          "Dinoflagellate",
+          "Dwarf Eelgrass",
+          "Eastern Mudsnail",
+          "Echinogammarus ischnus",
+          "Edible Oyster",
+          "European Fingernail_Clam",
+          "European Stream_Valvata",
+          "Fishhook Waterflea",
+          "Flowering Rush",
+          "Fucus serratus",
+          "Golden Star_Tunicate",
+          "Goldfish",
+          "Green Crab",
+          "Green Mussel",
+          "Haliplanella lineata",
+          "Incisocalliope derzhavini",
+          "Japanese False_Cerith",
+          "Japanese Littleneck",
+          "Japanese Nassa",
+          "Japanese Rocksnail",
+          "Lacy Crust_Bryozoan",
+          "Leptochelia dubia",
+          "Mediterranean Mussel",
+          "Melita nitida",
+          "Molgula manhattensis",
+          "Monocorophium acherusicum",
+          "Monocorophium insidiosum",
+          "Monocorophium uenoi",
+          "Mud Bithynia",
+          "Myosotella myosotis",
+          "Mytilus complex_complex_of_M_edulis_and_M_trossulus",
+          "Nephtys caeca",
+          "New Zealand_Mud_Snail",
+          "Northern Clearwater_Crayfish",
+          "Oyster Thief",
+          "Pacific Giant_Oyster",
+          "Papershell Crayfish",
+          "Penilia avirostris",
+          "Pink Salmon",
+          "Polydora cornuta",
+          "Potamothrix bavaricus",
+          "Potamothrix bedoti",
+          "Potamothrix moldaviensis",
+          "Pseudopolydora kempi",
+          "Pseudopolydora kempi_japonica",
+          "Ptilohyale littoralis",
+          "Purple Loosestrife",
+          "Quadrate Trapezium",
+          "Quagga Mussel",
+          "Rainbow Smelt",
+          "Rainbow Trout",
+          "Round Goby",
+          "Rudd",
+          "Rusty Crayfish",
+          "Saltmeadow Cordgrass",
+          "Sargassum muticum",
+          "Schizoporella japonica_S_unicornis",
+          "Sea Lamprey",
+          "Sea Thread_Hydroid",
+          "Sigambra tentaculata",
+          "Softshell Clam",
+          "Spiny WaterFlea",
+          "Threespine Stickleback",
+          "Tubenose Goby",
+          "Urosalphinx cinerea",
+          "Varnish Clam",
+          "Vase Tunicate",
+          "Violet Tunicate",
+          "White Bass",
+          "White Perch",
+          "Zebra Mussel"]
+%>
+
+      <%= f.input :length %>
+      <%= f.input :weight %> 
+      </fieldset>
+  <div>
+    <%= f.button :submit, "Add fish" %>
+  </div>
+
+     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  
+  <script src="http://code.jquery.com/jquery-2.0.2.js" type="text/javascript"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javscript"></script>
+  <script src="http://js.arcgis.com/3.8/"></script>
+  <script src="data/invasive_fish.js"></script>
+ 
+
+  <h1>Fish Names Test</h1>
+  
+  <ul class="test_all_images_wrapper"></ul>
+
+<input type="button" value="Get Geolocation" onclick="getGeoLocation();location.reload();" />
+
+  <ul id="getGeolocation_wrapper"></ul>
+    
+  <div id="map"></div>
+     
+<% end %>
+
